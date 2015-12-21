@@ -1,0 +1,16 @@
+<h1>Create Acccount</h1>
+
+<br><br>
+
+<form>
+    <input type="text"  data-ng-model="account.name"      placeholder="Account Name"/><br>
+    <input type="email" data-ng-model="account.email"     placeholder="Email"/><br>
+    <input type="text"  data-ng-model="account.password"  placeholder="Password"/><br>
+    <input type="text"  data-ng-model="account.passcheck" placeholder="Confirm Password"/><br>
+</form>
+
+<button class="btn btn-default" type="submit" data-ng-click="createAccount()">Create</button>
+
+<br>
+
+<pre style="text-align: left">account = {{ account | json }}</pre>

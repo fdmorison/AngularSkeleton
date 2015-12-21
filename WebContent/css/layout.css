@@ -1,0 +1,50 @@
+/* ------ RESET ------------------------------------- */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, main {
+    position: relative;
+}
+
+/* ------ ROOT ELEMENT ------------------------------------- */
+#document {
+    /* Positioning */
+    min-width:1000px;     /* Page Resolution X */
+    min-height: 500px;   /* Page Resolution Y */
+    /* Formatting */
+    text-align: center;
+}
+
+/* ------ LOGIN MODULE ------------------------------------- */
+section#login-module {
+    /* Positioning */
+    width:inherit;
+    height: 100%;
+}
+
+/* ------ ADMIN MODULE ------------------------------------- */
+section#admin-module {
+    /* Positioning */
+    position: fixed;
+    min-width: inherit;
+    height: 100%;
+}
+
+section#admin-module > main {
+    height: 100%;
+}
+
+section#admin-module > main > nav {
+    /* Positioning */
+    position: relative;
+    height: 100%;
+    /* Formatting */
+    background: #000;
+    /* border: 1px solid red; */
+}
+
+section#admin-module > main > section {
+    /* Positioning */
+    height: 100%;
+    /* Formatting */
+    float: left;
+    overflow-y:scroll;
+    /* border: 1px solid green; */
+}

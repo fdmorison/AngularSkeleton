@@ -1,0 +1,59 @@
+/* ------ LISTS -------------------------------------------- */
+ul.horizontal-list,
+ul.vertical-list {
+    /* Positioning */
+    display:inline-block;
+    position: relative;
+    margin:0;
+    padding:0;
+    /* Formatting */
+    list-style: none;
+}
+ul.horizontal-list > li,
+ul.vertical-list   > li {
+    /* Positioning */
+    position: relative;
+    margin:0;
+    padding:0;
+}
+ul.horizontal-list > li {
+    float:left;
+}
+
+/* ------ SIDEBAR ------------------------------------- */
+ul.sidebar {
+    /* Positioning */
+    position: relative;
+    box-sizing: border-box;
+    top: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    /* Formatting */
+    list-style: none;
+    color: #333;
+    background: #000;
+}
+
+ul.sidebar > li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+ul.sidebar > li a {
+    /* Positioning */
+    display: block;
+    /* Formatting */
+    text-decoration: none;
+    color: #999999;
+    text-align: left;
+}
+
+ul.sidebar > li.sidebar-brand {
+    /* Positioning */
+    height: 65px;
+    line-height: 60px;
+    /* Formatting */
+    font-size: 18px;
+}
+

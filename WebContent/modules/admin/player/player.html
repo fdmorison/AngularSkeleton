@@ -1,0 +1,15 @@
+<h1>Players</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Status</th>
+        <th>Name</th>
+    </tr>
+    
+    <tr data-ng-repeat="p in players">
+        <td class="span1"> <span class="badge">{{p.status}}</span> </td>
+        <td>{{p.name}}</td>
+    </tr>
+    
+</table>
