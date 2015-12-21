@@ -33,7 +33,7 @@ angular.module('account', [])
     $scope.createAccount = function() {
 
         $scope.account = Account.save($scope.account);
-        
+
     };
 
 });
