@@ -1,50 +1,71 @@
-/* ------ RESET ------------------------------------- */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, main {
-    position: relative;
+/* ------ ROOT ELEMENT ------------------------------------- */
+html{
+    height: 100%;
 }
 
-/* ------ ROOT ELEMENT ------------------------------------- */
+body {
+    height: 100%;
+}
+
 #document {
-    /* Positioning */
-    min-width:1000px;     /* Page Resolution X */
-    min-height: 500px;   /* Page Resolution Y */
+    height: 100%;
+}
+
+/* ------ GENERAL PAGE LAYOUT ------------------------------------- */
+article.page header {
+    /*border-bottom: 1px solid #808080;*/
+}
+
+article.page section {
+    /*margin-bottom: 10px;*/
+}
+
+/* ------ LOGIN MODULE ------------------------------------- */
+article#login-module {
+    /* Positioning: reset .container */
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
     /* Formatting */
     text-align: center;
 }
 
-/* ------ LOGIN MODULE ------------------------------------- */
-section#login-module {
-    /* Positioning */
-    width:inherit;
-    height: 100%;
-}
-
 /* ------ ADMIN MODULE ------------------------------------- */
-section#admin-module {
+article#admin-module {
     /* Positioning */
-    position: fixed;
-    min-width: inherit;
-    height: 100%;
-}
-
-section#admin-module > main {
-    height: 100%;
-}
-
-section#admin-module > main > nav {
-    /* Positioning */
-    position: relative;
-    height: 100%;
+    height: inherit;
+    /* Positioning: reset .container */
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
     /* Formatting */
-    background: #000;
-    /* border: 1px solid red; */
+    text-align: left;
+    background-color: black;
 }
 
-section#admin-module > main > section {
+article#admin-module > * {
+    /* Positioning */
+    height: inherit;
+}
+
+article#admin-module main {
+    /* Positioning */
+    height: inherit;
+    /* Formatting */
+    background-color: white;
+}
+
+/* ------ PLAYER MODULE ------------------------------------- */
+article#player-module {
+    /* Positioning */
+    height: inherit;
+    /* Formatting */
+    overflow-y: scroll;
+}
+
+article#player-module > section {
     /* Positioning */
     height: 100%;
-    /* Formatting */
-    float: left;
-    overflow-y:scroll;
-    /* border: 1px solid green; */
 }

@@ -1,5 +1,14 @@
-/* ------ IMPORTS ------------------------------------------ */
-@import url("components.css");
-@import url("fonts.css");
-@import url("images.css");
-@import url("layout.css");
+/* ------ RESET ------------------------------------- */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, main {
+    position: relative;
+}
+
+form {
+    display: inline-block;
+    width: 352px;
+}
+
+/* ------ HELPER CLASSES ------------------------------------- */
+.center {
+    text-align: center;
+}

@@ -26,7 +26,7 @@ angular.module('account', [])
             password: null,
             passcheck: null
     }
-    
+
     /**
      * Create a new account.
      */

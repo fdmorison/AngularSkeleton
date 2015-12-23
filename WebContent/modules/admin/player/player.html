@@ -1,15 +1,32 @@
-<h1>Players</h1>
+<article id="player-module" class="page">
 
-<table class="table">
+    <header class="page-header">
+        <h1>Players</h1>
+    </header>
 
-    <tr>
-        <th>Status</th>
-        <th>Name</th>
-    </tr>
-    
-    <tr data-ng-repeat="p in players">
-        <td class="span1"> <span class="badge">{{p.status}}</span> </td>
-        <td>{{p.name}}</td>
-    </tr>
-    
-</table>
+    <section>
+
+        <ul class="list-group">
+            <li data-ng-repeat="p in players" class="list-group-item {{p.status=='pk'?'list-group-item-danger':''}}">
+                <span class="label label-{{p.status=='pk'?'danger':'default'}}">{{p.status}}</span>
+                {{p.name}}
+            </li>
+        </ul>
+        
+        <!-- 
+        <table class="table">
+            <tr>
+                <th>Status</th>
+                <th>Name</th>
+            </tr>
+            <tbody>
+                <tr data-ng-repeat="p in players">
+                    <td class="span1"> <span class="badge">{{p.status}}</span> </td>
+                    <td>{{p.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        -->
+    </section>
+
+</article>

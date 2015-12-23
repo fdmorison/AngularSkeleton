@@ -9,16 +9,15 @@ angular.module('admin',['ui.router','player','product','account','bar','foo'])
         controller: 'adminController',
         controllerAs: 'c'
     });
-    
+
 })
 
 .controller('adminController', function($scope) {
-    var thiz = this;
-    console.log("start: adminController")
+
     /**
      * Does something...
      */
-    thiz.method1 = function() {
+    $scope.method1 = function() {
 
     };
 
@@ -26,7 +25,7 @@ angular.module('admin',['ui.router','player','product','account','bar','foo'])
      * Does something and return 0.
      * @returns zero
      */
-    thiz.method2 = function() {
+    $scope.method2 = function() {
       return 0;
     };
 

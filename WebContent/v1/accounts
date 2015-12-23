@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "id"        : 0,
+        "name"      : "root",
+        "email"     : "admin@gmail.com",
+        "facebookid": null,
+        "fullName"  : "Root",
+        "firstName" : "Root",
+        "lastName"  : "Root",  
+        "birthdate ": "1982-10-24",
+        "age"       : "33",
+        "gender"    : "Male",
+        "language"  : "pt_BR",
+        "password"  : "root",
+        "country"   : {
+            "code": "BR",
+            "name": "Brazil"
+        }
+    },
+    {
+        "id"        : 1,
+        "name"      : "fmarinho",
+        "email"     : "fmarinho@gmail.com",
+        "facebookid": "8888",
+        "fullName"  : "Fabricio Marinho",
+        "firstName" : "Fabricio",
+        "lastName"  : "Marinho",  
+        "birthdate ": "1982-10-24",
+        "age"       : "33",
+        "gender"    : "Male",
+        "language"  : "pt_BR",
+        "password"  : "fmarinho",
+        "country"   : {
+            "code": "BR",
+            "name": "Brazil"
+        }
+    },
+    {
+        "id"        : 2,
+        "name"      : "johnlack",
+        "email"     : "john.lackland@gmail.com",
+        "facebookid": "7777",
+        "fullName"  : "John Lackland",
+        "firstName" : "John",
+        "lastName"  : "Lackland",  
+        "birthdate ": "1982-10-24",
+        "age"       : "32",
+        "gender"    : "Male",
+        "language"  : "pt_BR",
+        "password"  : "secret123",
+        "country"   : {
+            "code": "BR",
+            "name": "Brazil"
+        }
+    }
+]
