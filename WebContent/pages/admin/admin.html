@@ -15,7 +15,32 @@
         </aside>
 
         <main ui-view class="col-md-9">
-            Content here
+            
+            <header class="page-header">
+                <h1>Admin Module</h1>
+            </header>
+
+            <section>
+	            <h4>Sample Messages</h4>
+	            <div class="btn-group" role="group" aria-label="...">
+	                <button class="btn btn-default" data-ng-click="showSomeInfo()">
+	                    Info
+	                </button>
+                    <button class="btn btn-default" data-ng-click="showSomeSuccess()">
+                        Success
+                    </button>
+	                <button class="btn btn-default" data-ng-click="showSomeWarn()">
+	                    Warn
+	                </button>
+	                <button class="btn btn-default" data-ng-click="showSomeError()">
+	                    Error
+	                </button>
+	                <button class="btn btn-default" data-ng-click="showSomeHelp()">
+	                    Help
+	                </button>
+	            </div>
+            </section>
+
         </main>
 
     </section>

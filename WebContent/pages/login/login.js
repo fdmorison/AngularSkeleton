@@ -41,8 +41,8 @@ angular.module('login',[])
         },
         function(response) {
             switch(response.status) {
-                case 401: UI.showMessage("The password is wrong"); break;
-                case 404: UI.showMessage("The account does not exist"); break;
+                case 401: UI.showWarn("The password is wrong"); break;
+                case 404: UI.showWarn("The account does not exist"); break;
             }
         })
 

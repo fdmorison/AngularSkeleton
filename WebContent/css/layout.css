@@ -5,19 +5,11 @@ html{
 
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 #document {
     height: 100%;
-}
-
-/* ------ GENERAL PAGE LAYOUT ------------------------------------- */
-article.page header {
-    /*border-bottom: 1px solid #808080;*/
-}
-
-article.page section {
-    /*margin-bottom: 10px;*/
 }
 
 /* ------ LOGIN MODULE ------------------------------------- */

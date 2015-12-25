@@ -1,0 +1,25 @@
+i.icon64 { 
+    display:inline-block; 
+    margin:0; 
+    width:64px; height:64px;
+    vertical-align:middle;
+    background-repeat:no-repeat;
+    background-image :url('../img/icons-64.png');
+}
+i.icon64.black { 
+    background-image :url('../img/icons-black-64.png');
+}
+i.icon64.hand { 
+    background-image :url('../img/icons-hand-64.png');
+}
+i.icon64.mail    { background-position: 0 0 }
+i.icon64.info    { background-position: -64px 0 }
+i.icon64.warn    { background-position: -128px 0 }
+i.icon64.success { background-position: -192px 0 }
+i.icon64.block   { background-position: -256px 0 }
+i.icon64.error      { background-position: 0 -64px }
+i.icon64.error-alt  { background-position: -64px -64px }
+i.icon64.error-alt2 { background-position: -128px -64px }
+i.icon64.help      { background-position: 0 -128px }
+i.icon64.help-book { background-position: -64px -128px }
+i.icon64.help-alt  { background-position: -128px -128px }

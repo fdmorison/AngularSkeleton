@@ -36,11 +36,11 @@ angular.module('account', [])
         .$promise
         .then(function(account) {
             $scope.account = account;
-            UI.showMessage("Account '"+account.name+"' was created");
+            UI.showSuccess("Account '"+account.name+"' was created");
         },
         function(response) {
             switch(response.status) {
-                case 409: UI.showMessage("Account '"+$scope.account.name+"' already exists");
+                case 409: UI.showWarn("Account '"+$scope.account.name+"' already exists");
                           break;
             }
         })

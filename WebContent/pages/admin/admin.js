@@ -12,7 +12,7 @@ angular.module('admin',['player','product','account','bar','foo'])
 
 })
 
-.controller('adminController', function($rootScope, $scope, $state) {
+.controller('adminController', function($rootScope, $scope, $state, UI) {
 
     if (!$rootScope.account) {
         $state.go('login');
@@ -24,6 +24,26 @@ angular.module('admin',['player','product','account','bar','foo'])
     $scope.logoff = function() {
         $rootScope.account = null;
         $state.go('login');
+    };
+
+    $scope.showSomeInfo = function() {
+        UI.showMessage("Blah...");
+    };
+
+    $scope.showSomeSuccess = function() {
+        UI.showSuccess("Blah...");
+    };
+
+    $scope.showSomeHelp = function() {
+        UI.showHelp("Blah...");
+    };
+
+    $scope.showSomeWarn = function() {
+        UI.showWarn("Blah...");
+    };
+
+    $scope.showSomeError = function() {
+        UI.showError("Blah...");
     };
 
 });

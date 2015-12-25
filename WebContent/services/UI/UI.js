@@ -27,7 +27,36 @@ angular.module('UI', [])
         showMessage: function(message, title) {
             $rootScope.$emit( "modals.open", {
                 title  : title || "Message",
-                message: message
+                message: message,
+                type   : "info"
+            });
+        },
+        showSuccess: function(message, title) {
+            $rootScope.$emit( "modals.open", {
+                title  : title || "Success",
+                message: message,
+                type   : "success"
+            });
+        },
+        showWarn: function(message, title) {
+            $rootScope.$emit( "modals.open", {
+                title  : title || "Warning",
+                message: message,
+                type   : "warn"
+            });
+        },
+        showError: function(message, title) {
+            $rootScope.$emit( "modals.open", {
+                title  : title || "Error",
+                message: message,
+                type   : "error"
+            });
+        },
+        showHelp: function(message, title) {
+            $rootScope.$emit( "modals.open", {
+                title  : title || "Help",
+                message: message,
+                type   : "help-book"
             });
         }
     });
