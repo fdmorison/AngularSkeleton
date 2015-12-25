@@ -40,6 +40,10 @@ ul.sidebar > li {
     line-height: 40px;
 }
 
+ul.sidebar > li:HOVER {
+    background: #262626;
+}
+
 ul.sidebar > li a {
     /* Positioning */
     display: block;

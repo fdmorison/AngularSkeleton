@@ -1,6 +1,6 @@
-angular.module('admin',['ui.router','player','product','account','bar','foo'])
+angular.module('admin',['player','product','account','bar','foo'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider) {
 
     $stateProvider
     .state('admin', {
@@ -19,18 +19,11 @@ angular.module('admin',['ui.router','player','product','account','bar','foo'])
     }
 
     /**
-     * Does something...
+     * Logs off the user
      */
-    $scope.method1 = function() {
-
-    };
-
-    /**
-     * Does something and return 0.
-     * @returns zero
-     */
-    $scope.method2 = function() {
-      return 0;
+    $scope.logoff = function() {
+        $rootScope.account = null;
+        $state.go('login');
     };
 
 });
