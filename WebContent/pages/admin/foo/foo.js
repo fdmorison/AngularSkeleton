@@ -5,7 +5,7 @@ angular.module('foo', [])
     $stateProvider
     .state('admin.foo', {
         url: "/foo",
-        templateUrl: 'modules/admin/foo/foo.html',
+        templateUrl: 'pages/admin/foo/foo.html',
         controller: 'fooController',
         controllerAs: 'c'
     });

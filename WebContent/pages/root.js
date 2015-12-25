@@ -1,4 +1,4 @@
-angular.module('root',['ui.router','login','admin'])
+angular.module('root',['ui.router','login','admin','UI'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 

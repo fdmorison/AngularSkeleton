@@ -5,13 +5,13 @@ angular.module('product', [])
     $stateProvider
     .state('admin.product', {
         url: "/product",
-        templateUrl: 'modules/admin/product/product.html',
+        templateUrl: 'pages/admin/product/product.html',
         controller: 'productController',
         controllerAs: 'c'
     });
 
 })
-	
+
 .controller('productController', function($scope) {
 
     $scope.products = [

@@ -5,7 +5,7 @@ angular.module('login',[])
     $stateProvider
     .state('login', {
         url: "/login",
-        templateUrl: 'modules/login/login.html',
+        templateUrl: 'pages/login/login.html',
         controller: 'loginController',
         controllerAs: 'c'
     });
@@ -21,7 +21,7 @@ angular.module('login',[])
 
 })
 
-.controller('loginController', function($rootScope, $scope, $state, Login) {
+.controller('loginController', function($rootScope, $scope, $state, Login, UI) {
 
     $scope.login = {
             account: null,
@@ -40,12 +40,10 @@ angular.module('login',[])
             $state.go('admin');
         },
         function(response) {
-            var messageArea = $("#alert");
             switch(response.status) {
-                case 401: messageArea.text("The password is wrong"); break;
-                case 404: messageArea.text("The account does not exist"); break;
+                case 401: UI.showMessage("The password is wrong"); break;
+                case 404: UI.showMessage("The account does not exist"); break;
             }
-            messageArea.show();
         })
 
     };

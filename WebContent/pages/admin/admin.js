@@ -5,14 +5,18 @@ angular.module('admin',['ui.router','player','product','account','bar','foo'])
     $stateProvider
     .state('admin', {
         url: "/admin",
-        templateUrl: 'modules/admin/admin.html',
+        templateUrl: 'pages/admin/admin.html',
         controller: 'adminController',
         controllerAs: 'c'
     });
 
 })
 
-.controller('adminController', function($scope) {
+.controller('adminController', function($rootScope, $scope, $state) {
+
+    if (!$rootScope.account) {
+        $state.go('login');
+    }
 
     /**
      * Does something...

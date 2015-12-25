@@ -5,7 +5,7 @@ angular.module('player', ['ngResource'])
     $stateProvider
     .state('admin.player', {
         url: "/player",
-        templateUrl: 'modules/admin/player/player.html',
+        templateUrl: 'pages/admin/player/player.html',
         controller: 'playerController',
         controllerAs: 'c'
     });
@@ -17,11 +17,11 @@ angular.module('player', ['ngResource'])
     return $resource("v1/alioth/players");
 
 })
-    
+
 .controller('playerController', function($scope, Player) {
 
     $scope.players = Player.query();
-    
+
     /**
      * Load the currently online players
      */

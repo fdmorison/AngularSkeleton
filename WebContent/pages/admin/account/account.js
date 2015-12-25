@@ -5,7 +5,7 @@ angular.module('account', [])
     $stateProvider
     .state('admin.account_creation', {
         url: "/account_creation",
-        templateUrl: 'modules/admin/account/account_creation.html',
+        templateUrl: 'pages/admin/account/account_creation.html',
         controller: 'accountController',
         controllerAs: 'c'
     });
@@ -18,7 +18,7 @@ angular.module('account', [])
 
 })
 
-.controller('accountController', function($scope, Account) {
+.controller('accountController', function($scope, Account, UI) {
 
     $scope.account = {
             name: null,
@@ -32,7 +32,18 @@ angular.module('account', [])
      */
     $scope.createAccount = function() {
 
-        $scope.account = Account.save($scope.account);
+        Account.save($scope.account)
+        .$promise
+        .then(function(account) {
+            $scope.account = account;
+            UI.showMessage("Account '"+account.name+"' was created");
+        },
+        function(response) {
+            switch(response.status) {
+                case 409: UI.showMessage("Account '"+$scope.account.name+"' already exists");
+                          break;
+            }
+        })
 
     };
 
