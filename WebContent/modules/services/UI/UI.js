@@ -1,64 +1,64 @@
-angular.module('UI', [])
+angular.module('UI', ['dialog'])
 
-.run(function() {
-
-    var element = $("<message-modal></message-modal>");
-    $("body").append(element);
-
-})
-
-.directive('messageModal', function($rootScope) {
-
-    return {
-        restrict: 'E',
-        templateUrl: "modules/services/UI/message-modal.html",
-        link: function(scope, element, attrs) {
-            $rootScope.$on("modals.open", function (event, params) {
-                scope.params = params;
-                element.children().first().modal('show');
-            });
-        }
-    }
-})
-
-.factory('UI', function($rootScope) {
+.factory('UI', function(Dialog) {
 
     return({
-        showMessage: function(message, title) {
-            $rootScope.$emit( "modals.open", {
-                title  : title || "Message",
-                message: message,
-                type   : "info"
-            });
+
+        /**
+         * Shows a general message.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * @param callback Called when the OK button is pressed
+         */
+        showMessage: function(message, title, callback) {
+            Dialog.open(title, message, "info", callback);
         },
-        showSuccess: function(message, title) {
-            $rootScope.$emit( "modals.open", {
-                title  : title || "Success",
-                message: message,
-                type   : "success"
-            });
+
+        /**
+         * Shows a success message.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * @param callback Called when the OK button is pressed
+         */
+        showSuccess: function(message, title, callback) {
+            Dialog.open(title || "Success", message, "success", callback);
         },
-        showWarn: function(message, title) {
-            $rootScope.$emit( "modals.open", {
-                title  : title || "Warning",
-                message: message,
-                type   : "warn"
-            });
+
+        /**
+         * Shows a warning message.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * @param callback Called when the OK button is pressed
+         */
+        showWarn: function(message, title, callback) {
+            Dialog.open(title || "Warn", message, "warn", callback);
         },
-        showError: function(message, title) {
-            $rootScope.$emit( "modals.open", {
-                title  : title || "Error",
-                message: message,
-                type   : "error"
-            });
+
+        /**
+         * Shows an error message.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * @param callback Called when the OK button is pressed
+         */
+        showError: function(message, title, callback) {
+            Dialog.open(title || "Error", message, "error", callback);
         },
-        showHelp: function(message, title) {
-            $rootScope.$emit( "modals.open", {
-                title  : title || "Help",
-                message: message,
-                type   : "help-book"
-            });
+
+        /**
+         * Shows a help message.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * @param callback Called when the OK button is pressed
+         */
+        showHelp: function(message, title, callback) {
+            Dialog.open(title || "Help", message, "help", callback);
         }
+
     });
 
 })

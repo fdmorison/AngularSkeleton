@@ -18,6 +18,11 @@ angular.module('admin',['player','product','account','bar','foo'])
         $state.go('login');
     }
 
+    // Test callback
+    var okButtonWasPressed = function() {
+        console.log("OK button was pressed!");
+    }
+
     /**
      * Logs off the user
      */
@@ -26,24 +31,39 @@ angular.module('admin',['player','product','account','bar','foo'])
         $state.go('login');
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
     $scope.showSomeInfo = function() {
-        UI.showMessage("Blah...");
+        UI.showMessage("Blah...", null, okButtonWasPressed);
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
     $scope.showSomeSuccess = function() {
-        UI.showSuccess("Blah...");
+        UI.showSuccess("Blah...", null, okButtonWasPressed);
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
     $scope.showSomeHelp = function() {
-        UI.showHelp("Blah...");
+        UI.showHelp("Blah...", null, okButtonWasPressed);
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
     $scope.showSomeWarn = function() {
-        UI.showWarn("Blah...");
+        UI.showWarn("Blah...", null, okButtonWasPressed);
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
     $scope.showSomeError = function() {
-        UI.showError("Blah...");
+        UI.showError("Blah...", null, okButtonWasPressed);
     };
 
 });
