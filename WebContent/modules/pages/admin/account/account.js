@@ -5,7 +5,7 @@ angular.module('account', [])
     $stateProvider
     .state('admin.account_creation', {
         url: "/account_creation",
-        templateUrl: 'pages/admin/account/account_creation.html',
+        templateUrl: 'modules/pages/admin/account/account_creation.html',
         controller: 'accountController',
         controllerAs: 'c'
     });

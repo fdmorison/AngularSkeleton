@@ -5,7 +5,7 @@ angular.module('player', ['ngResource'])
     $stateProvider
     .state('admin.player', {
         url: "/player",
-        templateUrl: 'pages/admin/player/player.html',
+        templateUrl: 'modules/pages/admin/player/player.html',
         controller: 'playerController',
         controllerAs: 'c'
     });

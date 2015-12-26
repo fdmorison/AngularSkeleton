@@ -5,7 +5,7 @@ angular.module('login',[])
     $stateProvider
     .state('login', {
         url: "/login",
-        templateUrl: 'pages/login/login.html',
+        templateUrl: 'modules/pages/login/login.html',
         controller: 'loginController',
         controllerAs: 'c'
     });

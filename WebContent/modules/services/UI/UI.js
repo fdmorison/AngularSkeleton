@@ -11,7 +11,7 @@ angular.module('UI', [])
 
     return {
         restrict: 'E',
-        templateUrl: "services/UI/message-modal.html",
+        templateUrl: "modules/services/UI/message-modal.html",
         link: function(scope, element, attrs) {
             $rootScope.$on("modals.open", function (event, params) {
                 scope.params = params;

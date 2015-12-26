@@ -5,7 +5,7 @@ angular.module('product', [])
     $stateProvider
     .state('admin.product', {
         url: "/product",
-        templateUrl: 'pages/admin/product/product.html',
+        templateUrl: 'modules/pages/admin/product/product.html',
         controller: 'productController',
         controllerAs: 'c'
     });
