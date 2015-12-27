@@ -1,5 +1,19 @@
 angular.module('login',[])
 
+.run(function($rootScope) {
+    
+    if (!sessionStorage.lastAdminState) {
+        localStorage.lastAdminState = 'admin'
+    }
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+        if ( toState.name.startsWith('admin.') ) {
+            localStorage.lastAdminState = toState.name;
+        }
+    });
+
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -37,7 +51,7 @@ angular.module('login',[])
         .$promise
         .then(function(account) {
             $rootScope.account = account;
-            $state.go('admin');
+            $state.go(localStorage.lastAdminState);
         },
         function(response) {
             switch(response.status) {
