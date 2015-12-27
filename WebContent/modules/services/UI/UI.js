@@ -1,6 +1,6 @@
 angular.module('UI', ['dialog'])
 
-.factory('UI', function(Dialog) {
+.factory('UI', function($q, Dialog) {
 
     return({
 
@@ -12,7 +12,10 @@ angular.module('UI', ['dialog'])
          * @param callback Called when the OK button is pressed
          */
         showMessage: function(message, title, callback) {
-            Dialog.open(title, message, "info", callback);
+            Dialog.open(message, {
+                title: title,
+                callback: callback
+            });
         },
 
         /**
@@ -23,7 +26,11 @@ angular.module('UI', ['dialog'])
          * @param callback Called when the OK button is pressed
          */
         showSuccess: function(message, title, callback) {
-            Dialog.open(title || "Success", message, "success", callback);
+            Dialog.open(message, {
+                type: Dialog.SUCCESS,
+                title: title,
+                callback: callback
+            });
         },
 
         /**
@@ -34,7 +41,11 @@ angular.module('UI', ['dialog'])
          * @param callback Called when the OK button is pressed
          */
         showWarn: function(message, title, callback) {
-            Dialog.open(title || "Warn", message, "warn", callback);
+            Dialog.open(message, {
+                type: Dialog.WARN,
+                title: title,
+                callback: callback
+            });
         },
 
         /**
@@ -45,7 +56,11 @@ angular.module('UI', ['dialog'])
          * @param callback Called when the OK button is pressed
          */
         showError: function(message, title, callback) {
-            Dialog.open(title || "Error", message, "error", callback);
+            Dialog.open(message, {
+                type: Dialog.ERROR,
+                title: title,
+                callback: callback
+            });
         },
 
         /**
@@ -56,8 +71,37 @@ angular.module('UI', ['dialog'])
          * @param callback Called when the OK button is pressed
          */
         showHelp: function(message, title, callback) {
-            Dialog.open(title || "Help", message, "help", callback);
-        }
+            Dialog.open(message, {
+                type: Dialog.HELP,
+                title: title,
+                callback: callback
+            });
+        },
+
+        /**
+         * Shows a confirm box that triggers a negative or positive action.
+         *
+         * @param message The content of the message
+         * @param title The message title
+         * 
+         * @returns Promise that will be resolved on confirmation or rejected on cancellation.
+         */
+        showConfirm: function(message, title) {
+
+            var deferred = $q.defer();
+
+            Dialog.open(message, {
+                type : Dialog.INFO,
+                title: title,
+                actions: [
+                    {label: "Confirm", callback: deferred.resolve},
+                    {label: "Cancel" , callback: deferred.reject}
+                ]
+            });
+
+            return deferred.promise;
+
+        },
 
     });
 

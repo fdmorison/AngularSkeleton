@@ -24,26 +24,66 @@ angular.module('dialog', [])
 .factory('Dialog', function($rootScope) {
 
     return({
-        open: function(title, message, type, callback) {
+
+        INFO : {
+            name : "info",
+            defaultTitle : "Message"
+        },
+        SUCCESS : {
+            name : "success",
+            defaultTitle : "Success"
+        },
+        WARN : {
+            name : "warn",
+            defaultTitle : "Warning"
+        },
+        ERROR : {
+            name : "error",
+            defaultTitle : "An Error Occurred"
+        },
+        HELP : {
+            name : "help",
+            defaultTitle : "Help"
+        },
+
+        /**
+         * Shows the dialog box.
+         *
+         * @param message The content of the message
+         * @param args A set of options: type, title and callback.
+         */
+        open: function(message, args) {
+
+            args         = args || {};
+            args.type    = args.type || this.INFO;
+            args.title   = args.title || args.type.defaultTitle;
+            args.actions = args.actions || [{
+                label: "OK",
+                callback: args.callback
+            }]
+
             $rootScope.$emit( "dialog.open", {
-                title   : title,
                 message : message,
-                type    : type,
-                callback: callback
+                type    : args.type.name,
+                title   : args.title,
+                actions : args.actions
             });
+
         }
+
     });
 
 })
 
-.controller('DialogController', function($scope) {
+.controller('DialogController', function($scope, $timeout) {
 
     /**
-     * Executes a callback when the OK button is pressed
+     * Executes the callback of the pressed button
      */
-    $scope.fireOK = function() {
-        if ($scope.params && $scope.params.callback) {
-            $scope.params.callback();
+    $scope.fireAction = function(a) {
+        
+        if (this.action && this.action.callback) {
+            $timeout(this.action.callback);
         }
     };
 

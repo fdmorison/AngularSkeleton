@@ -66,4 +66,18 @@ angular.module('admin',['player','product','account','bar','foo'])
         UI.showError("Blah...", null, okButtonWasPressed);
     };
 
+    /**
+     * Exemplifies how to open a message box
+     */
+    $scope.showSomeConfirm = function() {
+
+        UI.showConfirm("Confirm it or not?", null)
+        .then(function(){
+            alert("Confirmed");
+        }, function(){
+            alert("Canceled");
+        });
+
+    };
+
 });
