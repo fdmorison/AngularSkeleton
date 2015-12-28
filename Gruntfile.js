@@ -2,27 +2,30 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    srcFolder: "src/client",
+    distFolder: "target",
+      
     concat: {
         options: {
             separator: ';\n'
         },
         src: {
             src: [
-                'WebContent/modules/utils.js',
-                'WebContent/modules/components/**/*.js',
-                'WebContent/modules/services/**/*.js',
-                'WebContent/modules/pages/**/*.js'
+                '<%=srcFolder%>/modules/utils.js',
+                '<%=srcFolder%>/modules/components/**/*.js',
+                '<%=srcFolder%>/modules/services/**/*.js',
+                '<%=srcFolder%>/modules/pages/**/*.js'
             ],
             dest: 'target/js/app.js'
         },
         lib: {
             src: [
-                'WebContent/lib/jquery-2.1.4.min.js',
-                'WebContent/lib/bootstrap-3.3.6/js/bootstrap.min.js',
-                'WebContent/lib/angular-1.4.8/angular.min.js',
-                //'WebContent/lib/lib/angular-1.4.8/angular-mocks.js',
-                'WebContent/lib/lib/angular-1.4.8/angular-resource.min.js',
-                'WebContent/lib/angular-ui-0.2.15/angular-ui-router.js'
+                '<%=srcFolder%>/lib/jquery-2.1.4.min.js',
+                '<%=srcFolder%>/lib/bootstrap-3.3.6/js/bootstrap.min.js',
+                '<%=srcFolder%>/lib/angular-1.4.8/angular.min.js',
+                //'<%=srcFolder%>/lib/lib/angular-1.4.8/angular-mocks.js',
+                '<%=srcFolder%>/lib/lib/angular-1.4.8/angular-resource.min.js',
+                '<%=srcFolder%>/lib/angular-ui-0.2.15/angular-ui-router.js'
             ],
             dest: 'target/js/lib.min.js'
         }
@@ -41,7 +44,7 @@ module.exports = function(grunt) {
 
     htmlbuild: {
         index: {
-            src: 'WebContent/index.html',
+            src: '<%=srcFolder%>/index.html',
             dest: 'target/',
             options: {
                 beautify: true,
@@ -50,7 +53,7 @@ module.exports = function(grunt) {
                     'lib': 'target/js/lib.min.js'
                 },
                 sections: {
-                    'html': 'WebContent/html-tag.html'
+                    'html': '<%=srcFolder%>/html-tag.html'
                 }
             }
         }
@@ -62,6 +65,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-html-build');
 
-  grunt.registerTask('default', ['htmlbuild', 'concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'htmlbuild']);
 
 };

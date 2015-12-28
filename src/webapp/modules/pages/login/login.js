@@ -37,15 +37,16 @@ angular.module('login',[])
 
 .controller('loginController', function($rootScope, $scope, $state, Login, UI) {
 
-    $scope.login = {
-            account: null,
-            password: null
-    }
+    $scope.login = {};
 
     /**
      * Logs in the system
      */
-    $scope.doLogin = function(isValid) {
+    $scope.doLogin = function() {
+
+        if (!$scope.loginForm || $scope.loginForm.$invalid) {
+            return;
+        }
 
         Login.save($scope.login)
         .$promise
