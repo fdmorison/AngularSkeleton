@@ -1,5 +1,5 @@
 // Fake Backend Module
-angular.module('fakeBackend', ['root', 'ngMockE2E'])
+angular.module('fakeBackend', ['main', 'ngMockE2E'])
 
 .run(function($httpBackend, $http) {
 
