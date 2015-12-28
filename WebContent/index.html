@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+<!-- build:section html -->
 <html lang="en" data-ng-app="fakeBackend">
+<!-- /build -->
 <head>
     <!-- Header-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,19 +14,20 @@
 <body>
 
     <section id="document" data-ui-view></section>
-
-    <!-- Libs -->
+    <!-- build:script lib -->
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="lib/angular-1.4.8/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular-1.4.8/angular-mocks.js"></script>
     <script type="text/javascript" src="lib/angular-1.4.8/angular-resource.min.js"></script>
     <script type="text/javascript" src="lib/angular-ui-0.2.15/angular-ui-router.js"></script>
+    <!-- /build -->
+    <!-- build:script app -->
     <!-- Common includes: utilities and constants -->
     <script type="text/javascript" src="modules/utils.js"></script>
     <!-- Components -->
     <script type="text/javascript" src="modules/components/dialog/dialog.js"></script>
-    <!-- Services -->    
+    <!-- Services -->
     <script type="text/javascript" src="modules/services/UI/UI.js"></script>
     <!-- Modules -->
     <script type="text/javascript" src="modules/pages/main.js"></script>
@@ -35,9 +38,10 @@
     <script type="text/javascript" src="modules/pages/admin/product/product.js"></script>
     <script type="text/javascript" src="modules/pages/admin/bar/bar.js"></script>
     <script type="text/javascript" src="modules/pages/admin/foo/foo.js"></script>
-    <!-- Dev, Test -->
+    <!-- /build -->
+    <!-- build:remove -->
     <script type="text/javascript" src="lib/linq.js"></script>
     <script type="text/javascript" src="modules/services/fakeBackend/fakeBackend.js"></script>
-
+    <!-- /build -->
 </body>
 </html>
