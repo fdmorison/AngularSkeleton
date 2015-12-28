@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    srcFolder: "src/client",
+    srcFolder: "src/webapp",
     distFolder: "target",
       
     concat: {
@@ -28,6 +28,13 @@ module.exports = function(grunt) {
                 '<%=srcFolder%>/lib/angular-ui-0.2.15/angular-ui-router.js'
             ],
             dest: 'target/js/lib.min.js'
+        },
+        css: {
+            src: [
+                '<%=srcFolder%>/lib/bootstrap-3.3.6/css/bootstrap.min.css',
+                '<%=srcFolder%>/css/*.css'
+            ],
+            dest: 'target/css/style.css'
         }
     },
 
@@ -54,6 +61,9 @@ module.exports = function(grunt) {
                 },
                 sections: {
                     'html': '<%=srcFolder%>/html-tag.html'
+                },
+                styles: {
+                    'app': 'target/css/style.css'
                 }
             }
         }
