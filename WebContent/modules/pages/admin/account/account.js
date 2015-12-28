@@ -40,8 +40,9 @@ angular.module('account', [])
         },
         function(response) {
             switch(response.status) {
-                case 409: UI.showWarn("Account '"+$scope.account.name+"' already exists");
-                          break;
+                case CONFLICT: 
+                    UI.showWarn("Account '"+$scope.account.name+"' already exists");
+                    break;
             }
         })
 
