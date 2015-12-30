@@ -1,0 +1,25 @@
+/* ------ LAYOUT ------------------------------------- */
+article#admin-module {
+    /* Positioning */
+    height: inherit;
+    /* Positioning: reset .container */
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    /* Formatting */
+    text-align: left;
+    background-color: black;
+}
+
+article#admin-module > * {
+    /* Positioning */
+    height: inherit;
+}
+
+article#admin-module main {
+    /* Positioning */
+    height: inherit;
+    /* Formatting */
+    background-color: white;
+}

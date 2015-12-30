@@ -1,0 +1,12 @@
+/* ------ LAYOUT ------------------------------------- */
+article#player-module {
+    /* Positioning */
+    height: inherit;
+    /* Formatting */
+    overflow-y: scroll;
+}
+
+article#player-module > section {
+    /* Positioning */
+    height: 100%;
+}

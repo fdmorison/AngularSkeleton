@@ -1,4 +1,3 @@
-/* ------ ROOT ELEMENT ------------------------------------- */
 html{
     height: 100%;
 }
@@ -9,55 +8,5 @@ body {
 }
 
 #document {
-    height: 100%;
-}
-
-/* ------ LOGIN MODULE ------------------------------------- */
-article#login-module {
-    /* Positioning: reset .container */
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
-    /* Formatting */
-    text-align: center;
-}
-
-/* ------ ADMIN MODULE ------------------------------------- */
-article#admin-module {
-    /* Positioning */
-    height: inherit;
-    /* Positioning: reset .container */
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
-    /* Formatting */
-    text-align: left;
-    background-color: black;
-}
-
-article#admin-module > * {
-    /* Positioning */
-    height: inherit;
-}
-
-article#admin-module main {
-    /* Positioning */
-    height: inherit;
-    /* Formatting */
-    background-color: white;
-}
-
-/* ------ PLAYER MODULE ------------------------------------- */
-article#player-module {
-    /* Positioning */
-    height: inherit;
-    /* Formatting */
-    overflow-y: scroll;
-}
-
-article#player-module > section {
-    /* Positioning */
     height: 100%;
 }
