@@ -4,34 +4,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My App</title>
-    <!-- build:style app -->
+    <!-- build:css css/style.css -->
     <link rel="stylesheet" href="lib/bootstrap-3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/images.css">
-    <!-- /build -->
+    <!-- endbuild -->
 </head>
 <body>
 
     <section id="document" data-ui-view></section>
-    <!-- build:script lib -->
+    <!-- build:js js/lib.js -->
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="lib/angular-1.4.8/angular.min.js"></script>
-    <script type="text/javascript" src="lib/angular-1.4.8/angular-mocks.js"></script>
     <script type="text/javascript" src="lib/angular-1.4.8/angular-resource.min.js"></script>
     <script type="text/javascript" src="lib/angular-ui-0.2.15/angular-ui-router.js"></script>
-    <!-- /build -->
-    <!-- build:script app -->
-    <!-- Common includes: utilities and constants -->
+    <!-- endbuild -->
+    <!-- build:js js/app.js -->
     <script type="text/javascript" src="modules/utils.js"></script>
-    <!-- Components -->
     <script type="text/javascript" src="modules/components/dialog/dialog.js"></script>
-    <!-- Services -->
     <script type="text/javascript" src="modules/services/UI/UI.js"></script>
-    <!-- Modules -->
     <script type="text/javascript" src="modules/pages/main.js"></script>
     <script type="text/javascript" src="modules/pages/login/login.js"></script>
     <script type="text/javascript" src="modules/pages/admin/admin.js"></script>
@@ -40,9 +35,10 @@
     <script type="text/javascript" src="modules/pages/admin/product/product.js"></script>
     <script type="text/javascript" src="modules/pages/admin/bar/bar.js"></script>
     <script type="text/javascript" src="modules/pages/admin/foo/foo.js"></script>
-    <!-- /build -->
+    <!-- endbuild -->
     <!-- build:remove -->
     <script type="text/javascript" src="lib/linq.js"></script>
+    <script type="text/javascript" src="lib/angular-1.4.8/angular-mocks.js"></script>
     <script type="text/javascript" src="modules/services/fakeBackend/fakeBackend.js"></script>
     <!-- /build -->
 </body>
