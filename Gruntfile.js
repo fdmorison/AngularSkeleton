@@ -1,80 +1,118 @@
 module.exports = function(grunt) {
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    srcFolder: "src/webapp",
-    distFolder: "target",
-      
-    concat: {
-        options: {
-            separator: ';\n'
-        },
-        src: {
-            src: [
-                '<%=srcFolder%>/modules/utils.js',
-                '<%=srcFolder%>/modules/components/**/*.js',
-                '<%=srcFolder%>/modules/services/**/*.js',
-                '<%=srcFolder%>/modules/pages/**/*.js'
-            ],
-            dest: 'target/js/app.js'
-        },
-        lib: {
-            src: [
-                '<%=srcFolder%>/lib/jquery-2.1.4.min.js',
-                '<%=srcFolder%>/lib/bootstrap-3.3.6/js/bootstrap.min.js',
-                '<%=srcFolder%>/lib/angular-1.4.8/angular.min.js',
-                //'<%=srcFolder%>/lib/lib/angular-1.4.8/angular-mocks.js',
-                '<%=srcFolder%>/lib/lib/angular-1.4.8/angular-resource.min.js',
-                '<%=srcFolder%>/lib/angular-ui-0.2.15/angular-ui-router.js'
-            ],
-            dest: 'target/js/lib.min.js'
-        },
-        css: {
-            src: [
-                '<%=srcFolder%>/lib/bootstrap-3.3.6/css/bootstrap.min.css',
-                '<%=srcFolder%>/css/*.css'
-            ],
-            dest: 'target/css/style.css'
-        }
-    },
+        srcDir : "src/webapp",
+        buildDir : "target",
 
-    uglify: {
-        options: {
-            mangle: false
+        clean : {
+            build : [ "<%=buildDir%>/" ],
         },
-        src: {
-            files: {
-                'target/js/app.min.js': ['target/js/app.js']
-            }
-        }
-    },
 
-    htmlbuild: {
-        index: {
-            src: '<%=srcFolder%>/index.html',
-            dest: 'target/',
-            options: {
-                beautify: true,
-                scripts: {
-                    'app': 'target/js/app.min.js',
-                    'lib': 'target/js/lib.min.js'
-                },
-                sections: {
-                    'html': '<%=srcFolder%>/html-tag.html'
-                },
-                styles: {
-                    'app': 'target/css/style.css'
+        cssmin : {
+            options : {
+                shorthandCompacting : false,
+                roundingPrecision : -1
+            },
+            target : {
+                files : {
+                    'target/css/style.css' : [ 
+                        '<%=srcDir%>/lib/bootstrap*/css/bootstrap.min.css',
+                        '<%=srcDir%>/css/base.css', 
+                        '<%=srcDir%>/css/components.css',
+                        '<%=srcDir%>/css/images.css', 
+                        '<%=srcDir%>/css/fonts.css',
+                        '<%=srcDir%>/css/layout.css', 
+                    ]
                 }
             }
-        }
-    }
+        },
 
-  });
+        uglify : {
+            src : {
+                options : {
+                    mangle : false
+                },
+                files : {
+                    'target/js/app.min.js' : [ 
+                        '<%=srcDir%>/modules/utils.js',
+                        '<%=srcDir%>/modules/components/**/*.js',
+                        '<%=srcDir%>/modules/services/**/*.js',
+                        '<%=srcDir%>/modules/pages/**/*.js' 
+                    ]
+                }
+            },
+            lib : {
+                options : {
+                    mangle : false
+                },
+                files : {
+                    'target/js/lib.min.js' : [ 
+                        '<%=srcDir%>/lib/jquery-2.1.4.min.js',
+                        '<%=srcDir%>/lib/bootstrap-3.3.6/js/bootstrap.min.js',
+                        '<%=srcDir%>/lib/angular-1.4.8/angular.min.js',
+                        // '<%=srcDir%>/lib/lib/angular-1.4.8/angular-mocks.js',
+                        '<%=srcDir%>/lib/lib/angular-1.4.8/angular-resource.min.js',
+                        '<%=srcDir%>/lib/angular-ui-0.2.15/angular-ui-router.js'
+                     ]
+                }
+            }
+        },
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-html-build');
+        htmlbuild : {
+            index_html : {
+                options : {
+                    beautify : true,
+                    scripts : {
+                        'app' : 'target/js/app.min.js',
+                        'lib' : 'target/js/lib.min.js'
+                    },
+                    styles : {
+                        'app' : 'target/css/style.css'
+                    }
+                },
+                src : '<%=srcDir%>/index.html',
+                dest : 'target/',
+            }
+        },
 
-  grunt.registerTask('default', ['concat', 'uglify', 'htmlbuild']);
+        replace : {
+            index_html : {
+                src : [ 'target/index.html' ],
+                overwrite : true,
+                replacements : [ {
+                    from : 'data-ng-app="fakeBackend"',
+                    to : 'data-ng-app="main"',
+                } ]
+            }
+        },
+        
+        copy : {
+            img: {
+                expand: true, 
+                cwd: '<%=srcDir%>/img', 
+                src: ['**'], 
+                dest: 'target/img'
+            },
+            bootstrap_fonts: {
+                expand: true, 
+                cwd: '<%=srcDir%>/lib/bootstrap-3.3.6/fonts', 
+                src: '**', 
+                dest: 'target/fonts'
+            }
+        },
 
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-html-build');
+    grunt.loadNpmTasks('grunt-text-replace');
+
+    grunt.registerTask('default', 
+            [ 'clean', 'copy', 'cssmin', 'uglify', 'htmlbuild', 'replace']
+    );
+  
 };
