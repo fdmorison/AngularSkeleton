@@ -15,26 +15,43 @@ module.exports = function(grunt) {
         },
 
         copy : {
-            dist: {
+            main: {
                 files:[
-                    {
+                    {// index.html
                         src : '<%=srcDir%>/index.html',
                         dest: '<%=buildDir%>/index.html'
                     },
-                    {
+                    {// images
                         expand: true,
                         cwd: '<%=srcDir%>/img',
                         src: ['**'], 
                         dest: '<%=buildDir%>/img'
                     },
-                    {
+                    {// bootstrap fonts and images
                         expand: true,
                         cwd: '<%=srcDir%>/lib/bootstrap-3.3.6/fonts',
                         src: '**',
                         dest: '<%=buildDir%>/fonts'
+                    },
+                    {// templates
+                        expand: true,
+                        cwd: '<%=srcDir%>/modules',
+                        src: '**/*.html',
+                        dest: '<%=buildDir%>/modules'
+                        //,flatten: true
                     }
                 ]
-            }
+            },
+            test: {
+                files:[
+                    {// v1
+                        expand: true,
+                        cwd: '<%=srcDir%>/v1',
+                        src: '**',
+                        dest: '<%=buildDir%>/v1'
+                    }
+                ]
+            },
         },
 
         useminPrepare: {
@@ -90,7 +107,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'clean:build',
-        'copy',
+        'copy:main',
         'useminPrepare',
         'concat',
         'cssmin',
@@ -98,6 +115,18 @@ module.exports = function(grunt) {
         'usemin',
         'htmlbuild',
         'replace',
+        'clean:stage',
+    ]);
+    
+    grunt.registerTask('build-mock', [
+        'clean:build',
+        'copy:main',
+        'copy:test',
+        'useminPrepare',
+        'concat',
+        'cssmin',
+        'uglify',
+        'usemin',
         'clean:stage',
     ]);
 
