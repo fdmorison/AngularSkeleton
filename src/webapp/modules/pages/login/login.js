@@ -56,8 +56,14 @@ angular.module('login',[])
         },
         function(response) {
             switch(response.status) {
-                case UNAUTHORIZED: UI.showWarn("The password is wrong"); break;
-                case NOT_FOUND   : UI.showWarn("The account does not exist"); break;
+                case UNAUTHORIZED: 
+                    UI.showWarn("The password is wrong"); 
+                    break;
+                case NOT_FOUND: 
+                    UI.showWarn("The account does not exist");
+                    break;
+                default : 
+                    UI.showError("Your request has a problem", "HTTP Error " + response.status);
             }
         })
 

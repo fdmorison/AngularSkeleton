@@ -5,8 +5,7 @@ angular.module('fakeBackend', ['main', 'ngMockE2E'])
 
     // Table Declaration for Fake Persistence
     var tables = {
-            accounts : [],
-            players  : []
+            accounts:[], players:[]
     }
 
     // Load fake data
@@ -26,6 +25,11 @@ angular.module('fakeBackend', ['main', 'ngMockE2E'])
 
         // Request parameters
         var login = angular.fromJson(data);
+
+        // Validate Parameters
+        if ( isEmptyOrNull(login.account, login.password) ) {
+            return [BAD_REQUEST, null, {}];
+        }
 
         // Query database
         var result = Enumerable.From(tables.accounts)
@@ -51,6 +55,11 @@ angular.module('fakeBackend', ['main', 'ngMockE2E'])
         // Request parameters
         var account = angular.fromJson(data);
         var table   = tables.accounts;
+
+        // Validate Parameters
+        if ( isEmptyOrNull(account.name, account.email) ) {
+            return [BAD_REQUEST, null, {}];
+        }
 
         // Query database
         var result = Enumerable.From(table)

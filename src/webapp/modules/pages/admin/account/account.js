@@ -43,6 +43,8 @@ angular.module('account', [])
                 case CONFLICT: 
                     UI.showWarn("Account '"+$scope.account.name+"' already exists");
                     break;
+                default : 
+                    UI.showError("Your request has a problem", "HTTP Error " + response.status);
             }
         })
 

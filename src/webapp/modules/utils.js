@@ -7,8 +7,15 @@ var NOT_FOUND    = 404;
 var CONFLICT     = 409;
 
 // Utilities
-function isEmptyOrNull(a) {
+function isEmptyOrNull() {
 
-    return !a || a=="" || a==[];
+    var args = arguments;
+    for(var i in args){
+        var arg = args[i];  
+        if (!args[i] || args[i]=="" || args[i]==[]) {
+            return true;
+        }
+    }
+    return false;
 
 }
