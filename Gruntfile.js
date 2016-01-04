@@ -85,7 +85,7 @@ module.exports = function(grunt) {
             index_html : {
                 options : {
                     beautify : true,
-                    allowUnknownTags: true
+                    parseTag: "build-html"
                 },
                 src : '<%=buildDir%>/index.html',
                 dest: '<%=buildDir%>',
@@ -108,13 +108,13 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean:build',
         'copy:main',
+        'htmlbuild',
+        'replace',
         'useminPrepare',
         'concat',
         'cssmin',
         'uglify',
         'usemin',
-        'htmlbuild',
-        'replace',
         'clean:stage',
     ]);
     
